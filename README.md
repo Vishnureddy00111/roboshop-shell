@@ -29,3 +29,6 @@ Note:if we don't give 'i' option then it will make changes on the output not on 
 13  20/10/24 12:14:10 sed -e 's/root/ADMIN/1' /etc/passwd
 14  20/10/24 12:14:23 sed -e 's/root/ADMIN/2' /etc/passwd
 15  20/10/24 12:15:11 history
+
+
+sed -i -e -s/127.0.0.1/0.0.0.0/g' globally change the value
