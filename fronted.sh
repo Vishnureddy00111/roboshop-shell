@@ -10,5 +10,6 @@ unzip /tmp/frontend.zip
 
 cp nginx.conf /etc/nginx/nginx.conf
 
+
 systemctl restart nginx
 systemctl enable nginx
