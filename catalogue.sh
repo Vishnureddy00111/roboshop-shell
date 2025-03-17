@@ -1,3 +1,7 @@
+source common.sh
+app_name=catalogue
+
+print_heading ""
 cp mongodb.repo /etc/yum.repos.d/mongodb.repo
 cp catalogue.service /etc/systemd/system/catalogue.service
 
