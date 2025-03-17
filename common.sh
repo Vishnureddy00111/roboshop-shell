@@ -116,7 +116,7 @@ status_check $?
 
 for sql_file in schema app-user master-data; do
 print_heading "Load SQL File - $sql_file"
-mysql -h MYSQL.vishnureddy.online -uroot -pRoboShop@1 < /app/db/$sql_file.sql
+mysql -h MYSQL.vishnureddy.online -uroot -pRoboShop@1 < /app/db/$sql_file.sql &>>log_file
 done
 
 systemd_setup
