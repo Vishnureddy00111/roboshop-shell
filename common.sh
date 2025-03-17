@@ -9,24 +9,34 @@ app_prerequisities() {
 
   print_heading Add Application User "
   useradd roboshop &>>log_file
-  echo $?
+  status_check $?
 
   print_heading Create ApplicationDirectory "
   rm -rf /app &>>log_file
   mkdir /app &>>log_file
-  echo $?
+  status_check $?
 
   print_heading Download Application content "
   curl -L -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip
   cd /
-  echo $?
+  status_check $?
 
   print_heading Extract Application content "
   unzip /tmp/$app_name.zip &>>log_file
-  echo $?
+  status_check $?
 }
 
 print_heading() {
   echo -e "$color $1 $no_color" &>>log_file
   echo -e "$color $1 $no_color"
+}
+
+
+status_check() {
+  if [ $1 -eq 0 ]; then
+    echo -e "\e[32m SUCCESS \e[0m"
+    else
+      echo -e "\e[31m FAILURE \e[0m"
+      fi
+
 }
