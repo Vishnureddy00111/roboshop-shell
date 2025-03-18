@@ -111,14 +111,6 @@ mv target/$app_name-1.0.jar $app_name.jar &>>log_file
 status_check $?
 
 
-print_heading "Install MYSQL Client"
-dnf install mysql -y &>>log_file
-status_check $?
-
-for sql_file in schema app-user master-data; do
-print_heading "Load SQL File - $sql_file"
-mysql -h MYSQL.vishnureddy.online -uroot -p$MYSQL_ROOT_PASSWORD < /app/db/$sql_file.sql &>>log_file
-done
 
 systemd_setup
 }
